@@ -58,7 +58,16 @@ class TreeNode:
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        
+        if x < 0:
+            return False
+
+        v = x
+        revert_v = 0
+        while v:
+            revert_v = v%10 + revert_v*10
+            v = v//10
+        return revert_v == x
+
 # leetcode submit region end(Prohibit modification and deletion)
 
 if __name__ == '__main__':

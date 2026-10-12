@@ -1,5 +1,7 @@
+from typing import Optional
 
-# 给你一个二叉树的根节点 root ， 检查它是否轴对称。 
+
+# 给你一个二叉树的根节点 root ， 检查它是否轴对称。
 # 
 #  
 # 
@@ -48,8 +50,22 @@ class TreeNode:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: TreeNode | None) -> bool:
-        
+    def isSymmetric(self, root):
+        if root is None:
+            return True
+        stack = [(root.left, root.right)]      # 镜像对：左子树的左 ↔ 右子树的右
+        while stack:
+            a, b = stack.pop()
+            if not a and not b :
+                continue
+            if not a or not b or a.val != b.val:
+                return False
+            stack.append((a.left, b.right))
+            stack.append((a.right, b.left))
+        return True
+
+
+
 # leetcode submit region end(Prohibit modification and deletion)
 
 if __name__ == '__main__':
