@@ -53,5 +53,23 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        
+        head = ListNode()
+        node = head
+        while list1 or list2:
+            if not list1:
+                node.next = list2
+                break
+            if not list2:
+                node.next = list1
+                break
+            v1, v2 = list1.val, list2.val
+            if v1 > v2:
+                node.next = list2
+                list2 = list2.next
+            else:
+                node.next = list1
+                list1 = list1.next
+            node = node.next
+        return head.next
+
 # leetcode submit region end(Prohibit modification and deletion)
