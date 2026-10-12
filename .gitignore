@@ -2,4 +2,6 @@
 .venv
 .DS_Store
 leetcode/.DS_Store
- leetcode/editor/cn/doc/conten
+leetcode/editor/cn/doc/conten
+leetcode/editor/cn/doc/
+leetcode/editor/cn/__pycache__
